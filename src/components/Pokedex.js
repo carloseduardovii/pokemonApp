@@ -10,6 +10,7 @@ const Pokedex = () => {
   const navigate = useNavigate()
 
   const [ pokemons, setPokemons] = useState([])
+  const [locations, setLocations] = useState([])
   const [ pokemonName, setPokemonName ] = useState('')
 
 
@@ -28,8 +29,11 @@ const Pokedex = () => {
   }
 
   useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1126/")
+    axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1300/")
     .then(res => setPokemons(res.data.results))
+
+    axios.get("https://pokeapi.co/api/v2/type/")
+      .then((res) => setLocations(res.data.results))
     
   }, [])
    
@@ -39,10 +43,30 @@ const Pokedex = () => {
     navigate(`/pokemons/${pokemonName}`);
   };
 
+  const handleType = (e) => {
+    // e.target.value es la url de la location
+    console.log(e.target.value)
+    axios.get(e.target.value)
+    .then(res => setPokemons(res.data.pokemon))
+  };
+
   return (
     <div className='pokedex'>
       
       <p className="welcome-message">Welcome pokemon master {userName}</p>
+
+      <div className="select">
+        <select onChange={handleType}>
+          {
+          locations.map(location =>(
+            <option key={location.url} value={location.url}>
+              {location.name}
+            </option>      
+          ))
+        }
+        </select>
+      </div>
+
       <form className="input-container" onSubmit={submit}>
         <label htmlFor="pokemon-name">Search Name </label>
         <input
