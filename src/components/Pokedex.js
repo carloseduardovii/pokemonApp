@@ -14,7 +14,7 @@ const Pokedex = () => {
 
 
   const [ page, setPage ] = useState(1)
-  const itemsNumber = 9
+  const itemsNumber = 15
   const lastIndex = page * itemsNumber
   const firstIndex = lastIndex - itemsNumber
   const pokemonsPage = pokemons.slice(firstIndex, lastIndex)
@@ -40,26 +40,28 @@ const Pokedex = () => {
   };
 
   return (
-    <div>Pokedex
+    <div className='pokedex'>
       
-      <p className="welcome-message">Welcome {userName}</p>
+      <p className="welcome-message">Welcome pokemon master {userName}</p>
       <form className="input-container" onSubmit={submit}>
         <label htmlFor="pokemon-name">Search Name </label>
         <input
           type="text"
+          placeholder=' Write pokemon name'
           id="pokemon-name"
           value={pokemonName}
           onChange={(e) => setPokemonName(e.target.value)}
         />
-        <button>Search</button>
+        <button className='btn-go'>GO</button>
       </form>
-     
-      <ul className="pokemon-list">
+     <div className='container-list'>
         {pokemonsPage.map((pokemon) => (
-          <PokemonCard pokemonUrl={pokemon.url} key={pokemon.url} />
-        ))}
-        
-      </ul>
+          <PokemonCard 
+          key={pokemon.url}
+          pokemonUrl={pokemon.url}
+          />
+        ))}   
+      </div>     
 
       <div>
         {numberPages.map(page => 
