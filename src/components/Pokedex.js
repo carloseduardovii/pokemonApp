@@ -10,7 +10,7 @@ const Pokedex = () => {
   const navigate = useNavigate()
 
   const [ pokemons, setPokemons] = useState([])
-  const [locations, setLocations] = useState([])
+  const [ locations, setLocations] = useState([])
   const [ pokemonName, setPokemonName ] = useState('')
 
 
@@ -29,7 +29,7 @@ const Pokedex = () => {
   }
 
   useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1300/")
+    axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1127/")
     .then(res => setPokemons(res.data.results))
 
     axios.get("https://pokeapi.co/api/v2/type/")
@@ -40,7 +40,7 @@ const Pokedex = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    navigate(`/pokemons/${pokemonName}`);
+    navigate(`/Pokedex/${pokemonName}`)
   };
 
   const handleType = (e) => {

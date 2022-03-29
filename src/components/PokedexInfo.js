@@ -27,7 +27,7 @@ const PokedexInfo = () => {
         <li><b>Weight:</b> {pokemon.weight}</li>
       </div>
       <div className='btn-return'>
-        <Link to={'/pokedex/'} element={<Pokedex/>}>
+        <Link to={'/Pokedex/'} element={<Pokedex/>}>
           <button className="return-link"><b>Go Back</b></button>
         </Link>
       </div>
