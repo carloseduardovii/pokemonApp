@@ -94,7 +94,7 @@
   background-image: url("https://i.pinimg.com/originals/90/4a/74/904a747dcf65450b8e9cb89eba6180fe.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 130vh;
 }
 
 .welcome-message{
@@ -130,8 +130,8 @@
 .container-list{
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  justify-content: first baseline;
+  width: 95%;
+  justify-content: space-evenly;
 }
 
  .pokemon-list{
@@ -184,12 +184,66 @@
 .input-container button:active{
   background-color: maroon;
 }
+
+.buttons{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.btn-previous{
+  width: 90px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0059FF;
+  border: 1px solid #0059FF;  
+  box-shadow: 1px 2px 4px 4px rgb(0,0,0,.5);
+  opacity: .8;
+  font-family: 'Indie Flower', cursive;
+  color: yellow;
+  font-size: 20px;
+}
+
+.btn-next{
+  width: 90px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0059FF;
+  border: 1px solid #0059FF;  
+  box-shadow: 1px 2px 4px 4px rgb(0,0,0,.5);
+  opacity: .8;
+  font-family: 'Indie Flower', cursive;
+  color: yellow;
+  font-size: 20px;
+
+}
+
+.pages{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px;
+  width: 95%;
+}
+
+.btn-pages{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+.btn-pages:hover{
+  background-color: orange;
+}
+
+.btn-pages:active{
+  background-color: red;
+}
+
 /*-----------------------POKEMON-CARD--------------------------*/
 
-.pokelist{
-  padding: 10px;
-  width: 160px;
-}
 
 .card-list{
   display: flex;

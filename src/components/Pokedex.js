@@ -85,28 +85,31 @@ const Pokedex = () => {
           pokemonUrl={pokemon.url}
           />
         ))}   
-      </div>     
-
-      <div>
-        {numberPages.map(page => 
-          <button
-            key={page} 
-            onClick={()=> setPage(page + 1)}>
-            {page}
-          </button>)}
       </div>
-
-      <button 
-        onClick={() => setPage(page - 1)}
-        disabled={page <= 1}>
-        Previous
-      </button>
-      
-      <button 
-        onClick={() => setPage(page + 1)}
-        disabled={page >= totalPages}>
-        Next
-      </button>
+      <div className='buttons'>
+        <button
+          className='btn-previous'
+          onClick={() => setPage(page - 1)}
+          disabled={page <= 1}>
+          Previous
+        </button>
+        
+        <button
+          className='btn-next'
+          onClick={() => setPage(page + 1)}
+          disabled={page >= totalPages}>
+          Next
+        </button>
+      </div>
+      <div className='pages'>
+          {numberPages.map(page => 
+            <button
+              className='btn-pages'
+              key={page} 
+              onClick={()=> setPage(page + 1)}>
+              {page}
+            </button>)}
+        </div>
     </div>
   )
 }
